@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MTConnectDevices xmlns:m="urn:mtconnect.org:MTConnectDevices:1.1" xmlns="urn:mtconnect.org:MTConnectDevices:1.1" xsi:schemaLocation="urn:mtconnect.org:MTConnectDevices:1.1 http://www.mtconnect.org/schemas/MTConnectDevices_1.1.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Header bufferSize="130000" instanceId="1" creationTime="2009-11-13T02:31:40" sender="local" version="1.1"/>
+	<Devices>
+		<Device id="d1" uuid="TD1" name="SimulatorMachine">
+			<Description>SimulatorMachine</Description>
+			<Components>
+				<Controller id="cont1" name="controller">
+					<Components>
+						<Path id="path1" name="path">
+							<DataItems>
+								<DataItem type="PROGRAM" id="pgm1" category="EVENT" name="program"/>
+								<DataItem type="BLOCK" id="blk1" category="EVENT" name="block"/>
+								<DataItem type="LINE" id="ln1" category="EVENT" name="line"/>
+								<DataItem type="EXECUTION" id="exec1" category="EVENT" name="execution"/>
+								<DataItem type="CONTROLLER_MODE" id="cm1" category="EVENT" name="mode"/>
+								<DataItem type="PART_COUNT" id="parts-remaining1" category="EVENT" name="parts-remaining"/>
+								<DataItem type="PART_COUNT" id="parts-completed1" category="EVENT" name="parts-completed"/>
+								<DataItem type="x:EMPLOYEE_CODE" id="EMP1" category="EVENT" name="EMP" />
+								<DataItem type="x:BIN_ID" id="BIN1" category="EVENT" name="BIN" />
+								<DataItem type="x:DT_REASON" id="DT-REASON1" category="EVENT" name="DT-REASON" />
+								<DataItem type="x:DT_DURATION" id="DT-DURATION1" category="EVENT" name="DT-DURATION" />
+								<DataItem type="x:REJ_REASON" id="REJ-REASON1" category="EVENT" name="REJ-REASON" />
+								<DataItem type="x:REJ_QTY" id="REJ-QTY1" category="EVENT" name="REJ-QTY" />
+								<DataItem type="x:MACHINE_ID" id="MACHINE-ID1" category="EVENT" name="machine-id"/>
+								<DataItem type="x:BARCODE_READER" id="BCR1" category="EVENT" name="bcr"/>
+								<DataItem type="x:RFID_READER" id="rfid1" category="EVENT" name="rfid"/>
+							</DataItems>
+						</Path>
+					</Components>
+				</Controller>
+				<Systems id="systems1" name="systems">
+					<Components>
+						<Sensors id="sensors1" name="sensors">
+							<DataItems>
+								<DataItem type="VOLTAGE" units="VOLT" nativeUnits="VOLT" name="analog-1" id="analog-1" category="SAMPLE"/>
+								<DataItem type="VOLTAGE" units="VOLT" nativeUnits="VOLT" name="analog-2" id="analog-2" category="SAMPLE"/>
+								<DataItem type="VOLTAGE" units="VOLT" nativeUnits="VOLT" name="analog-3" id="analog-3" category="SAMPLE"/>
+								<DataItem type="VOLTAGE" units="VOLT" nativeUnits="VOLT" name="analog-4" id="analog-4" category="SAMPLE"/>
+								<DataItem type="VOLTAGE" units="VOLT" nativeUnits="VOLT" name="digital-1" id="digital-1" category="SAMPLE"/>
+								<DataItem type="VOLTAGE" units="VOLT" nativeUnits="VOLT" name="digital-2" id="digital-2" category="SAMPLE"/>
+							</DataItems>
+						</Sensors>
+						<Electric  name="electric" id="electric1">
+							<DataItems>
+								<DataItem category="EVENT" id="power_state1" name="power" type="POWER_STATE"/>
+								<DataItem category="SAMPLE" id="powerfreq1" name="frq" nativeUnits="HERTZ" type="FREQUENCY" units="HERTZ"/>
+								<DataItem category="SAMPLE" id="kw1" name="kw" nativeUnits="WATT" type="WATTAGE" units="WATT"/>
+								<DataItem category="SAMPLE" id="kva1" name="kva" nativeUnits="WATT" type="WATTAGE" units="WATT"/>
+								<DataItem category="SAMPLE" id="kvar1" name="kvar" nativeUnits="WATT" type="WATTAGE" units="WATT"/>
+								<DataItem category="SAMPLE" id="power-pf1" name="pf" type="x:POWER_FACTOR" nativeUnits="PERCENT" units="PERCENT"/>
+								<DataItem category="SAMPLE" id="voltage-a1" name="va" nativeUnits="VOLT" type="VOLTAGE" units="VOLT"/>
+								<DataItem category="SAMPLE" id="voltage-b1" name="vb" nativeUnits="VOLT" type="VOLTAGE" units="VOLT"/>
+								<DataItem category="SAMPLE" id="voltage-c1" name="vc" nativeUnits="VOLT" type="VOLTAGE" units="VOLT"/>
+								<DataItem category="SAMPLE" id="current-a1" name="ia" nativeUnits="AMPERE" type="AMPERAGE" units="AMPERE"/>
+								<DataItem category="SAMPLE" id="current-b1" name="ib" nativeUnits="AMPERE" type="AMPERAGE" units="AMPERE"/>
+								<DataItem category="SAMPLE" id="current-c1" name="ic" nativeUnits="AMPERE" type="AMPERAGE" units="AMPERE"/>
+							</DataItems>
+						</Electric>
+					</Components>
+				</Systems>
+			</Components>
+		</Device>				
+	</Devices>
+</MTConnectDevices>

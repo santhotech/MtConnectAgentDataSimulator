@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="AgentDataSimulator.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="portNo" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">9000</Value>
+    </Setting>
+    <Setting Name="delaySec" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="xmlFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">example.xml</Value>
+    </Setting>
+    <Setting Name="lstFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">examplelist.txt</Value>
+    </Setting>
+    <Setting Name="agtFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">agent.exe</Value>
+    </Setting>
+    <Setting Name="dataSrc" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://localhost:5000/SimulatorMachine</Value>
+    </Setting>
+    <Setting Name="fileToOpen" Type="System.String" Scope="User">
+      <Value Profile="(Default)">example.txt</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

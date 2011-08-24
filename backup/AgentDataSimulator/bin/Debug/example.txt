@@ -1,0 +1,7 @@
+execution|ACTIVE
+execution|STOPPED
+program|123456
+block|123456
+machine-id|1234
+parts-completed|1234
+parts-remaining|1234
