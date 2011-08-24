@@ -115,6 +115,21 @@ namespace AgentDataSimulator
         private void stp_Click(object sender, EventArgs e)
         {
             sdf.StopSendingData();
-        }          
+        }
+        private void dcdrStrt_Click(object sender, EventArgs e)
+        {
+            xp.StartDumpingData();
+        }
+
+        private void dcdrStp_Click(object sender, EventArgs e)
+        {
+            xp.StopDumpingData();
+        }
+
+        private void dcdrStngs_Click(object sender, EventArgs e)
+        {
+            Form f4 = new Form4();
+            f4.ShowDialog();
+        }
     }
 }
