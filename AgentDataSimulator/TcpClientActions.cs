@@ -73,6 +73,52 @@ namespace AgentDataSimulator
         {
             listenFlag = false;
         }
+        // This method will send the text passed to it to all the clients it has been connected to
+        public void SendDataToClients(string strToBeSent)
+        {
+            try
+            {
+                foreach (object ob in clients)
+                {
+                    try
+                    {
+                        TcpClient clnt = (TcpClient)ob;
+                        NetworkStream clientStream = clnt.GetStream();
+                        ASCIIEncoding encoder = new ASCIIEncoding();
+                        byte[] buffer = encoder.GetBytes(strToBeSent);
+                        clientStream.Write(buffer, 0, buffer.Length);
+                        clientStream.Flush();
+                    }
+                    catch { }
+                }
+            }
+            catch { }
+        }
 
+        // Check if the clients connected to it are active
+        public void CheckClientsActive(object tClient)
+        {
+            TcpClient tcpClient = (TcpClient)tClient;
+            NetworkStream clientStream = tcpClient.GetStream();
+            while (true)
+            {
+                try
+                {
+                    byte[] message = new byte[4096];
+                    int bytesRead;
+                    bytesRead = 0;
+                    try { bytesRead = clientStream.Read(message, 0, 4096); }
+                    catch { }                    
+                    if (bytesRead == 0)
+                    {
+                        clients.Remove(tcpClient);
+                        --ClientCount;
+                        break;
+                    }
+                }
+                catch { }               
+            }
+        }        
+        //end methods definition      
     }
 }
