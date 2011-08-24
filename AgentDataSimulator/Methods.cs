@@ -6,7 +6,7 @@ namespace AgentDataSimulator
 {
     class Methods
     {
-        bool IsAllDigits(string s)
+        public bool IsAllDigits(string s)
         {
             foreach (char c in s)
             {

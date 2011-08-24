@@ -9,11 +9,13 @@ using System.Windows.Forms;
 namespace AgentDataSimulator
 {
     public partial class Form3 : Form
-    {        
+    {
+        Methods met;
         public Form3()
         {
             InitializeComponent();
             delBetInpTxt.Text = Properties.Settings.Default.delaySec.ToString();
+            met = new Methods();
         }
         private void button3_Click(object sender, EventArgs e)
         {
@@ -23,7 +25,7 @@ namespace AgentDataSimulator
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if ((!gu.IsAllDigits(delBetInpTxt.Text)) || (!gu.IsAllDigits(prtTxt.Text)))
+            if ((!met.IsAllDigits(delBetInpTxt.Text)) || (!met.IsAllDigits(prtTxt.Text)))
             {
                 MessageBox.Show("Enter Only numbers for PORT and TIME DELAY", "Error");
             }
