@@ -24,5 +24,42 @@ namespace AgentDataSimulator
                 }
             }
         }
+        public void SendData()
+        {
+            this.SendFlag = true;
+            string fileToOpen = Properties.Settings.Default.fileToOpen;
+            StreamReader sr = new StreamReader(fileToOpen);
+            int delay = Properties.Settings.Default.delaySec;
+            while (sendFlag)
+            {
+                string read = string.Empty;
+                try
+                {
+                    while ((read = sr.ReadLine()) != null)
+                    {
+                        try
+                        {
+                            read = "|" + read + "\n";
+                            tca.SendDataToClients(read);
+                            Thread.Sleep(delay);
+                            if (sr.EndOfStream == true)
+                            {
+                                sr = new StreamReader(fileToOpen);
+                            }
+                        }
+                        catch
+                        {
+                            this.SendFlag = false;
+                            break;
+                        }
+                    }
+                }
+                catch
+                {
+                    this.SendFlag = false;
+                    break;
+                }
+            }
+        }
     }
 }
