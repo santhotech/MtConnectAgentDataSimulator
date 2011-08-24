@@ -68,6 +68,43 @@ namespace AgentDataSimulator
             Form f3 = new Form3();
             f3.ShowDialog();
         }
+        public void delBetInpTxt_TextChanged(object sender, EventArgs e)
+        {
+            TextBox t = (TextBox)sender;
+            simDelTxt.Text = t.Text + " ms";
+        }
+        public void sdf_SimStatusChanged(bool curFlag)
+        {
+            if (curFlag) { simStatBtn.BackColor = Color.LimeGreen; } else { simStatBtn.BackColor = Color.Red; };
+            tsa.SetEnabled(strt, !curFlag);
+            tsa.SetEnabled(stp, curFlag);
+        }
 
+        public void aa_AgentStatusChanged(bool curFlag)
+        {
+            if (curFlag) { agntStatBtn.BackColor = Color.LimeGreen; } else { agntStatBtn.BackColor = Color.Red; };
+            agentStrt.Enabled = !curFlag;
+            agentStop.Enabled = curFlag;
+            agentSettings.Enabled = !curFlag;
+        }
+
+        public void xp_DumperStatusChanged(bool curFlag)
+        {
+            tsa.SetEnabled(dcdrStrt, !curFlag);
+            tsa.SetEnabled(dcdrStp, curFlag);
+        }
+
+        public void tca_ClientCountChanged(int numClients)
+        {
+            tsa.SetText(numClients.ToString(), this.cliNumStatLbl);
+            if (numClients > 0)
+            {
+                tsa.SetCtrlCol(cliStatBtn, Color.LimeGreen, 0);
+            }
+            else
+            {
+                tsa.SetCtrlCol(cliStatBtn, Color.Red, 0);
+            }
+        }     
     }
 }
