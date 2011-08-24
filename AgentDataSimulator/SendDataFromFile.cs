@@ -12,6 +12,12 @@ namespace AgentDataSimulator
         TcpClientActions tca;
         public delegate void SimStatusChangedEventHandler(bool curFlag);
         public event SimStatusChangedEventHandler SimStatusChanged;
+        Thread t;
+        public SendDataFromFile(TcpClientActions mTcp)
+        {
+            tca = mTcp;
+        }
+        
         public bool SendFlag
         {
             get { return this.sendFlag; }
@@ -60,6 +66,17 @@ namespace AgentDataSimulator
                     break;
                 }
             }
+        }
+        public void StartSendingData()
+        {
+            t = new Thread(new ThreadStart(SendData));
+            t.Start();
+        }
+
+        public void StopSendingData()
+        {
+            this.SendFlag = false;
+            t.Abort();
         }
     }
 }
