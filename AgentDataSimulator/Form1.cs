@@ -131,5 +131,32 @@ namespace AgentDataSimulator
             Form f4 = new Form4();
             f4.ShowDialog();
         }
+        private void inpDataClearBtn_Click(object sender, EventArgs e)
+        {
+            currStat.Text = string.Empty;
+        }
+
+        public void Form_closing(object sender, CancelEventArgs cargs)
+        {
+            aa.AgentStop();
+            Environment.Exit(0);
+        }
+
+
+
+        private void expCsvBtn_Click(object sender, EventArgs e)
+        {
+            string csvStr = string.Empty;
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                if (saveFileDialog1.FileName != "")
+                {
+                    StreamWriter wText = new StreamWriter(saveFileDialog1.FileName);
+                    wText.Write(csvStr);
+                    wText.Close();
+                }
+            }
+        }
+        
     }
 }
