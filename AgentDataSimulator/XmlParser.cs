@@ -47,5 +47,34 @@ namespace AgentDataSimulator
             this.DumpFlag = false;
         }
 
+        public string GetSequence()
+        {
+            XPathDocument doc;
+            XmlNamespaceManager ns;
+            XPathNavigator navigator;
+            XPathNodeIterator nodes;
+            XPathNavigator node;
+            string seq = string.Empty;
+            try
+            {
+                doc = new XPathDocument(ds + "/current");
+                navigator = doc.CreateNavigator();
+                ns = new XmlNamespaceManager(navigator.NameTable);
+                ns.AddNamespace("m", "urn:mtconnect.org:MTConnectStreams:1.1");
+                nodes = navigator.Select("//m:Header", ns);
+                while (nodes.MoveNext())
+                {
+                    node = nodes.Current;
+                    seq = node.GetAttribute("nextSequence", ns.DefaultNamespace);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Cannot retrieve MTConnect Stream" + ex.ToString());
+                Console.Write(ex.ToString());
+            }
+            return seq;
+        }
+
     }
 }
