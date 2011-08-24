@@ -43,5 +43,16 @@ namespace AgentDataSimulator
                 MessageBox.Show("Cannot start agent", "Error");
             }
         }
+        public void AgentStop()
+        {
+            try
+            {
+                p1.Kill();
+                this.AgtFlag = false;
+            }
+            catch
+            {
+            }
+        }
     }
 }
