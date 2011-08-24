@@ -50,5 +50,29 @@ namespace AgentDataSimulator
 
         }
 
+        // The method which will open a socket and listen for clients in the socket
+        public void StartListeningForClients()
+        {
+            int port = Properties.Settings.Default.portNo;
+            tcpListener = new TcpListener(IPAddress.Any, port);
+            listenFlag = true;
+            tcpListener.Start();
+            while (listenFlag)
+            {
+                TcpClient client = this.tcpListener.AcceptTcpClient();
+                clients.Add(client);
+                ++ClientCount;
+                Thread t = new Thread(new ParameterizedThreadStart(CheckClientsActive));
+                t.IsBackground = true;
+                t.Start(client);
+            }
+        }
+
+        // Calling this method will stop listening for the clients
+        public void StopListeningForClients()
+        {
+            listenFlag = false;
+        }
+
     }
 }
