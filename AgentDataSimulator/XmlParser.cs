@@ -16,6 +16,7 @@ namespace AgentDataSimulator
         bool dumpFlag = false;
         public delegate void DumperStatusChangedEventHandler(bool curFlag);
         public event DumperStatusChangedEventHandler DumperStatusChanged;
+        Thread t;
         public bool DumpFlag
         {
             get { return this.dumpFlag; }
@@ -32,5 +33,19 @@ namespace AgentDataSimulator
         {
             ds = dataSrc;
         }
+
+        public void StartDumpingData()
+        {
+            this.DumpFlag = true;
+            t = new Thread(new ThreadStart(DumpData));
+            t.Start();
+        }
+
+        public void StopDumpingData()
+        {
+            t.Abort();
+            this.DumpFlag = false;
+        }
+
     }
 }
