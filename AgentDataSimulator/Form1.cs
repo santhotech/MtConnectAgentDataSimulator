@@ -105,6 +105,16 @@ namespace AgentDataSimulator
             {
                 tsa.SetCtrlCol(cliStatBtn, Color.Red, 0);
             }
-        }     
+        }
+
+        private void strt_Click(object sender, EventArgs e)
+        {
+            sdf.StartSendingData();
+        }
+
+        private void stp_Click(object sender, EventArgs e)
+        {
+            sdf.StopSendingData();
+        }          
     }
 }
